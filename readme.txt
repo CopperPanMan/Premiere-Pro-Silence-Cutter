@@ -1,13 +1,13 @@
-ReadMe ñ PremiereSilenceCutter
+ReadMe ‚Äì PremiereSilenceCutter
 
-This program uses your mouse, keyboard, and a series of updating screenshots to cut the silence out of clips in adobe premiere pro. This leaves the user the option to expand silences back where needed. I don't make money from this and wrote this in a weekend so don't be suprised if it's buggier than code Adobe would send out.
+This program uses your mouse, keyboard, and a series of updating screenshots to cut the silence out of clips in adobe premiere pro. This leaves the user the option to expand silences back where needed. I wrote this in a weekend so don't be suprised if it's buggier than code Adobe would send out.
 
 In order for it to work:
-	ïFor best results, add your footage to the beginning of the timeline (with no space ahead of it), and zoom in until it fills the entire timeline.
-	ïYou'll need to nest your footage so that it appears green (this also ensures there's no premade cuts), and make sure your Premiere color scheme is set to default - these colors are how it finds the timeline automatically
-	ïMake sure the tracks that you want to have cut are selected (meaning V1 and A1 are in blue boxes), and that the audio and video are linked (ìlinked selectionî is on). Donít try to do this on multiple layers of clips at the same time - if you need something cut along with your audio, first nest them.
-	ïMake sure your audio is showing as dual channel on the timeline
-	ïYouíll need to make sure your hotkeys are the same as this program expects
+	‚Ä¢For best results, add your footage to the beginning of the timeline (with no space ahead of it), and zoom in until it fills the entire timeline.
+	‚Ä¢You'll need to nest your footage so that it appears green (this also ensures there's no premade cuts), and make sure your Premiere color scheme is set to default - these colors are how it finds the timeline automatically
+	‚Ä¢Make sure the tracks that you want to have cut are selected (meaning V1 and A1 are in blue boxes), and that the audio and video are linked (‚Äúlinked selection‚Äù is on). Don‚Äôt try to do this on multiple layers of clips at the same time - if you need something cut along with your audio, first nest them.
+	‚Ä¢Make sure your audio is showing as dual channel on the timeline
+	‚Ä¢You‚Äôll need to make sure your hotkeys are the same as this program expects
 		q = ripple trim previous edit to playhead (I think this is the default)
 		z = add edit (I think this is the default)
 		h = hand tool (this is the default)
@@ -15,16 +15,16 @@ In order for it to work:
 		= = zoom in (this is the default)
 		- = zoom out (this is the default)
 		n = go to sequence-clip start
-	ïDonít use your mouse or keyboard while the program is running, unless it starts to malfunction or you want to stop it. Then quickly move your mouse to one of the corners of your screen and it should exit automatically. 
+	‚Ä¢Don‚Äôt use your mouse or keyboard while the program is running, unless it starts to malfunction or you want to stop it. Then quickly move your mouse to one of the corners of your screen and it should exit automatically. 
 
 Recommendations:
-	ïI recommend you expand your audio track so the waveform is taller. It helps the program to see the audio with more precision
-	ïItís probably easiest to play around with the variables it asks for and then write down what works well for you. If you understand Python, you could just hard-code your values in. They all do slightly different things:
-		ïLeftmost X, Rightmost X, Top Y, and Bottom Y are the coordinates of the sides of the display with premiere on it. This tells the computer where to look to intially find the timeline. For me, this was 0, 3440, 0, 1439, respectively. If you have one 1080p monitor, they should be 0, 1920, 0, 1080. If you have multiple monitors, this can change your mouse coordinates. If you're unsure, you can use the included executable "MouseTracker.exe" to read out the coordinates of your mouse in real time.
-		ïminSilence is the minimum amount of silence you want the program to cut out, in pixels. If you enter 5, and thereís a silence 10 pixels long, it wonít cut it. 20-60 was a good range for me. Enter numbers less than 1 at your own risk
-		ïgap is the amount of space you want before and after your ìgoodî audio, in pixels. 5-15 was a good range for me. Enter numbers more or less at your own risk
-		ïAudio Level is how high up the audio track you want the program to search when looking for light and dark pixels (audio and silence, respectively), from 1-20. I had good results around 8-12. 10 is half-way up, 20 would be at the very top and would only leave huge peaks, 0 would leave everything untouched.
-	ïIf Premiere is being slower than the program and screwing things up, try proxying your footage.
-	ïThe code can be found on my github at https://github.com/CopperPanMan/Premiere-Pro-Silence-Cutter
+	‚Ä¢I recommend you expand your audio track so the waveform is taller. It helps the program to see the audio with more precision
+	‚Ä¢It‚Äôs probably easiest to play around with the variables it asks for and then write down what works well for you. If you understand Python, you could just hard-code your values in. They all do slightly different things:
+		‚Ä¢Leftmost X, Rightmost X, Top Y, and Bottom Y are the coordinates of the sides of the display with premiere on it. This tells the computer where to look to intially find the timeline. For me, this was 0, 3440, 0, 1439, respectively. If you have one 1080p monitor, they should be 0, 1920, 0, 1080. If you have multiple monitors, this can change your mouse coordinates. If you're unsure, you can use the included executable "MouseTracker.exe" to read out the coordinates of your mouse in real time.
+		‚Ä¢minSilence is the minimum amount of silence you want the program to cut out, in pixels. If you enter 5, and there‚Äôs a silence 10 pixels long, it won‚Äôt cut it. 20-60 was a good range for me. Enter numbers less than 1 at your own risk
+		‚Ä¢gap is the amount of space you want before and after your ‚Äúgood‚Äù audio, in pixels. 5-15 was a good range for me. Enter numbers more or less at your own risk
+		‚Ä¢Audio Level is how high up the audio track you want the program to search when looking for light and dark pixels (audio and silence, respectively), from 1-20. I had good results around 8-12. 10 is half-way up, 20 would be at the very top and would only leave huge peaks, 0 would leave everything untouched.
+	‚Ä¢If Premiere is being slower than the program and screwing things up, try proxying your footage.
+	‚Ä¢The code can be found on my github at https://github.com/CopperPanMan/Premiere-Pro-Silence-Cutter
 
 

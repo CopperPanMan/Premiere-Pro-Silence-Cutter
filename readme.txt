@@ -3,7 +3,8 @@ ReadMe – PremiereSilenceCutter
 This program uses your mouse, keyboard, and a series of updating screenshots to cut the silence out of clips in adobe premiere pro. This leaves the user the option to expand silences back where needed. I wrote this in a weekend so don't be suprised if it's buggier than code Adobe would send out.
 
 In order for it to work:
-	•For best results, add your footage to the beginning of the timeline (with no space ahead of it), and zoom in until it fills the entire timeline.
+	•For best results, add your footage to the beginning of the timeline (with no space ahead of it), and zoom in until it fills the entire timeline. Click off the track to deselect (no white box around clip) once done.
+	•currently if the playhead is not at the very front when you start, the program won't work. Will fix that at some point.
 	•You'll need to nest your footage so that it appears green (this also ensures there's no premade cuts), and make sure your Premiere color scheme is set to default - these colors are how it finds the timeline automatically
 	•Make sure the tracks that you want to have cut are selected (meaning V1 and A1 are in blue boxes), and that the audio and video are linked (“linked selection” is on). Don’t try to do this on multiple layers of clips at the same time - if you need something cut along with your audio, first nest them.
 	•Make sure your audio is showing as dual channel on the timeline

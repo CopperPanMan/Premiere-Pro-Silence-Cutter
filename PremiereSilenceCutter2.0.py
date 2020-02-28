@@ -21,12 +21,12 @@ def press(button):
 
 def cutAndMove():
     #press z at X1
-    click(X1+game_coords[0]+playheadOffset,949)
+    click(X1+game_coords[0]+playheadOffset,playheadY)
     press('z')
     time.sleep(clickTime)
     #increment by X1 to the right
     press('h')
-    pyautogui.moveTo((game_coords[0]+game_coords[2])/2,playheadY-15, duration = clickTime)
+    pyautogui.moveTo((game_coords[0]+game_coords[2])/2,playheadY+15, duration = clickTime)
     pyautogui.drag(-X1, 0, 0.25, pyautogui.easeOutQuad)
     print("I moved this many pixels: ", X1)
     print("X1: ",X1)
@@ -34,7 +34,7 @@ def cutAndMove():
     print("Cut location: ", X2-X1+game_coords[0]+playheadOffset)
     time.sleep(clickTime)
     #press q at X2-X1
-    click(X2-X1+game_coords[0]+playheadOffset,949) #click playhead at X2
+    click(X2-X1+game_coords[0]+playheadOffset,playheadY) #click playhead at X2
     press('q')
     time.sleep(clickTime)
 
@@ -71,7 +71,7 @@ def takeScreenshot():
 
 def resetWorkspace():
     press('h')
-    pyautogui.moveTo(game_coords[2],playheadY-15, duration = clickTime)
+    pyautogui.moveTo(game_coords[2],playheadY+15, duration = clickTime)
     pyautogui.drag((game_coords[0]-game_coords[2]), 0, 0.5, pyautogui.easeOutQuad)
     #mouse.click(Button.left)
     #mouse.moveTo(game_coords[0],1000)
@@ -90,7 +90,7 @@ def resetVariables():
 ###########################################
 
 #inputLeftX = 0
-#nputRightX = 3440
+#inputRightX = 3440
 #inputTopY = 0
 #inputBottomY = 1439
 
@@ -111,6 +111,7 @@ Gray = [38, 38, 38]
 
 prescreen = np.array(ImageGrab.grab(bbox=NewArray))
 #prescreen = cv2.cvtColor(prescreen, cv2.COLOR_BGR2GRAY)
+
 #plt.imshow(prescreen)
 #plt.show()
 
@@ -131,9 +132,9 @@ while boolval: #find bottom left corner
                     bottomY = y
                     boolval = 0
                     break
-        x = x + 5
+        x = x + 10
     x = 0
-    y = y - 2
+    y = y - 1
 
 x = leftX + 1
 while True: #find bottom right corner
@@ -141,19 +142,19 @@ while True: #find bottom right corner
         x = x - 5
         rightX = x
         break
-    x = x + 2
+    x = x + 1
 
 x = rightX
 while True: #find top right corner. Increment down y until you find gray
     y = y - 1
     if (prescreen[y][x] == Gray).all():
-        topY = y - 1
+        topY = y + 1
         break
 
 while True: #find playhead Y value
     y = y - 1
-    if (prescreen[y][x] == Yellow).all:
-        playheadY = y + 6
+    if (prescreen[y][x] == Yellow).all():
+        playheadY = y - 6
         break
 
 game_coords = [leftX+10, int((bottomY+topY)/2), rightX, bottomY]
